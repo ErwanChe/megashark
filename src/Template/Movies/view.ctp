@@ -38,6 +38,10 @@
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($movie->modified) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Relesase Date') ?></th>
+            <td><?= h($movie->relesase_date) ?></td>
+        </tr>
     </table>
     <div class="row">
         <h4><?= __('Description') ?></h4>
