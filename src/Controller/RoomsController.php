@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
+
 
 /**
  * Rooms Controller
@@ -37,8 +39,12 @@ class RoomsController extends AppController
         $room = $this->Rooms->get($id, [
             'contain' => []
         ]);
+        
+        $startDate = new Time();
+        $ShowTimes = $this->Rooms->Showtimes->find()->where(['start >=' => $startDate]);
 
         $this->set('room', $room);
+        $this->set('showtimes', $ShowTgit addimes);
         $this->set('_serialize', ['room']);
     }
 
