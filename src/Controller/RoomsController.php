@@ -36,16 +36,20 @@ class RoomsController extends AppController
      */
     public function view($id = null)
     {
+        
         $room = $this->Rooms->get($id, [
             'contain' => []
         ]);
         
         $startDate = new Time();
-        $ShowTimes = $this->Rooms->Showtimes->find()->where(['start >=' => $startDate]);
+        $startDate->format('Y-m-d');
+        
+        $ShowTimes = $this->Rooms->Showtimes
+            ->find()
+            ->where(['start >=' => $startDate->format('Y-m-d')]);
 
         $this->set('room', $room);
-        $this->set('showtimes', $ShowTgit addimes);
-        $this->set('_serialize', ['room']);
+        $this->set('showtimes', $ShowTimes);
     }
 
     /**

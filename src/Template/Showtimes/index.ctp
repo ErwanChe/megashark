@@ -35,7 +35,7 @@
                 <td><?= $this->Number->format($showtime->id) ?></td>
                 <td><?= $showtime->has('movie') ? $this->Html->link($showtime->movie->name, ['controller' => 'Movies', 'action' => 'view', $showtime->movie->id]) : '' ?></td>
                 <td><?= $showtime->has('room') ? $this->Html->link($showtime->room->name, ['controller' => 'Rooms', 'action' => 'view', $showtime->room->id]) : '' ?></td>
-                <td><?= h($showtime->start) ?></td>
+                <td><?= h($showtime->start->format('Y-m-d')) ?></td>
                 <td><?= h($showtime->end) ?></td>
                 <td><?= h($showtime->created) ?></td>
                 <td><?= h($showtime->modified) ?></td>
