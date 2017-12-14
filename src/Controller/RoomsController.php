@@ -46,9 +46,12 @@ class RoomsController extends AppController
         
         $ShowTimes = $this->Rooms->Showtimes
             ->find()
+            ->contain(['Movies'])
             ->where(['room_id =' => $id])
             ->where(['start >=' => $startDate->format('Y-m-d')])
             ->where(['start <' => $startDate->modify('+7 days')->format('Y-m-d')]);
+
+
 
         $this->set('room', $room); 
         $this->set('showtimes', $ShowTimes);

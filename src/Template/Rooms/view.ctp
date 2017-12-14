@@ -39,5 +39,18 @@
             <td><?= h($room->modified) ?></td>
         </tr>
     </table>
-     <?php debug($showtimes->toArray()); ?>
+    <ul>
+        <?php 
+        foreach ($showtimes as $showtime){
+            echo '<li>';
+            echo "Nom du film: ";
+            echo $showtime->movie->name;
+            echo " || Date de début: ";
+            echo $showtime->start->format('Y-m-d ');
+            echo " || git statusDate de fin: ";
+            echo $showtime->end->format('Y-m-d ');
+            echo '</li>';
+        }
+        ?>
+    </ul>
 </div>
