@@ -50,11 +50,17 @@ class RoomsController extends AppController
             ->where(['room_id =' => $id])
             ->where(['start >=' => $startDate->format('Y-m-d')])
             ->where(['start <' => $startDate->modify('+7 days')->format('Y-m-d')]);
-
+        
+        
+        foreach($ShowTimes as $value)
+        {
+            $ShowTimesThisWeek[$value->start->format('N')][]=$value;
+        }
 
 
         $this->set('room', $room); 
         $this->set('showtimes', $ShowTimes);
+        $this->set('showTimesThisWeek', $ShowTimesThisWeek);
     }
 
     /**

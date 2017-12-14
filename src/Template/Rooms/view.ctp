@@ -40,17 +40,19 @@
         </tr>
     </table>
     <ul>
+    
         <?php 
-        foreach ($showtimes as $showtime){
+        for ($i = 1; $i <= 7; $i++) {
             echo '<li>';
-            echo "Nom du film: ";
-            echo $showtime->movie->name;
-            echo " || Date de début: ";
-            echo $showtime->start->format('Y-m-d ');
-            echo " || git statusDate de fin: ";
-            echo $showtime->end->format('Y-m-d ');
+                echo $i;
+                    if (isset($showTimesThisWeek[$i])) {
+                      foreach ($showTimesThisWeek[$i] as $value) {
+                        echo $value;
+                      } 
+                    }
             echo '</li>';
         }
+        
         ?>
     </ul>
 </div>
