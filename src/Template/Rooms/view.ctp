@@ -62,6 +62,12 @@
                         if (isset($showTimesThisWeek[$i])) {
                           foreach ($showTimesThisWeek[$i] as $value) {
                             echo $value->movie->name;
+                            echo '<br>';
+                            echo $value->start->format('H:i');
+                            echo ' / ';
+                            echo $value->end->format('H:i');
+                            echo '<br>';
+                            echo '<br>';
                           } 
                         }
                   echo'</td>';  
