@@ -41,11 +41,12 @@ class RoomsController extends AppController
             'contain' => []
         ]);
         
-        $startDate = new Time();
+        $startDate = new Time('monday this week');
         $startDate->format('Y-m-d');
         
         $ShowTimes = $this->Rooms->Showtimes
             ->find()
+            ->where(['room_id =' => $id])
             ->where(['start >=' => $startDate->format('Y-m-d')])
             ->where(['start <' => $startDate->modify('+7 days')->format('Y-m-d')]);
 
