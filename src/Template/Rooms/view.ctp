@@ -39,20 +39,38 @@
             <td><?= h($room->modified) ?></td>
         </tr>
     </table>
-    <ul>
     
-        <?php 
-        for ($i = 1; $i <= 7; $i++) {
-            echo '<li>';
-                echo $i;
-                    if (isset($showTimesThisWeek[$i])) {
-                      foreach ($showTimesThisWeek[$i] as $value) {
-                        echo $value;
-                      } 
-                    }
-            echo '</li>';
-        }
-        
-        ?>
+    <!------------------>
+    
+        <h3>Seance cette semaine</h3>
+    <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th> Lundi </th>
+                <th> Mardi </th>
+                <th> Mercredi </th>
+                <th> Jeudi </th>
+                <th> Vendredi </th>
+                <th> Samedi </th>
+                <th> Dimanche </th>
+            </tr>
+        <tbody>
+            <tr>
+            <?php 
+                for($i = 1; $i <= 7; $i++)
+                {
+                  echo'<td>';
+                        if (isset($showTimesThisWeek[$i])) {
+                          foreach ($showTimesThisWeek[$i] as $value) {
+                            echo $value->movie->name;
+                          } 
+                        }
+                  echo'</td>';  
+                }
+            ?>
+            </tr>
+        </tbody>
+    </table>
+    
+    <ul>
     </ul>
 </div>
